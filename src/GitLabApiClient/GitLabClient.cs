@@ -5,6 +5,8 @@ using GitLabApiClient.Internal.Http;
 using GitLabApiClient.Internal.Http.Serialization;
 using GitLabApiClient.Internal.Queries;
 using GitLabApiClient.Internal.Utilities;
+using GitLabApiClient.Models.Events;
+using GitLabApiClient.Models.Events.Requests;
 using GitLabApiClient.Models.Job.Requests;
 using GitLabApiClient.Models.Oauth.Requests;
 using GitLabApiClient.Models.Oauth.Responses;
@@ -59,6 +61,7 @@ namespace GitLabApiClient
             var treeQueryBuilder = new TreeQueryBuilder();
             var jobQueryBuilder = new JobQueryBuilder();
             var toDoListBuilder = new ToDoListQueryBuilder();
+            var eventQueryBuiler = new EventsQueryBuilder();
 
             Issues = new IssuesClient(_httpFacade, issuesQueryBuilder, projectIssueNotesQueryBuilder);
             Uploads = new UploadsClient(_httpFacade);
@@ -78,6 +81,7 @@ namespace GitLabApiClient
             Runners = new RunnersClient(_httpFacade);
             ToDoList = new ToDoListClient(_httpFacade, toDoListBuilder);
             Connection = new ConnectionClient(_httpFacade);
+            Events = new EventsClient(_httpFacade, eventQueryBuiler);
         }
 
         /// <summary>
@@ -165,6 +169,10 @@ namespace GitLabApiClient
         /// </summary>
         public IToDoListClient ToDoList { get; }
 
+        /// <summary>
+        /// Access Gitlab's Event API
+        /// </summary>
+        public IEventsClient Events { get; }
         /// <summary>
         /// Provides a client connection to make rest requests to HTTP endpoints.
         /// </summary>
