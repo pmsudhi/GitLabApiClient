@@ -38,7 +38,7 @@ namespace GitLabApiClient.Models.Events.Requests
         /// <summary>
         /// ort events in asc or desc order by created_at. Default is desc
         /// </summary>
-        public SortingOrder Sort { get; set; }
+        public SortOrder Sort { get; set; }
 
         /// <summary>
         /// Events can be retrived in 3 diffrent ways.

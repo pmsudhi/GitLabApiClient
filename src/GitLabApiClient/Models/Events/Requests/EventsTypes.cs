@@ -51,15 +51,7 @@ namespace GitLabApiClient.Models.Events
         [EnumMember(Value = "user")]
         user
     }
-    public enum SortingOrder
-    {
-        [EnumMember(Value = " ")]
-        None,
-        [EnumMember(Value = "asc")]
-        Asc,
-        [EnumMember(Value = "dsc")]
-        Dsc
-    }
+  
     /// <summary>
     /// Events can be retrived in 3 diffrent ways.
     /// Default is All events related to logged in user
